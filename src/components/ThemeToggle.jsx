@@ -8,12 +8,12 @@ function ThemeToggle() {
   const buttonTextColor = theme === 'light' ? 'text-neutral-200' : 'text-slate-100';
 
   return (
-    <button
-      onClick={toggleTheme}
-      className={`p-2 rounded-md flex items-center
-                  ${buttonBgColor} ${buttonTextColor}
-                  hover:opacity-80 transition-colors`}
-    >
+      <button
+        onClick={toggleTheme}
+  className={`px-2 py-1 rounded flex items-center w-fit text-sm sm:text-base
+                    ${buttonBgColor} ${buttonTextColor}
+                    hover:opacity-80 transition-colors`}
+      >
       {theme === 'light' ? (
         <Moon className="mr-2" />
       ) : (

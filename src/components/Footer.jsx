@@ -14,7 +14,7 @@ const Footer = () => {
   const { data } = useQuery(SITE_INFO);
   const currentYear = new Date().getFullYear();
 
-  const footerBgColor = theme === 'light' ? 'bg-emerald-950' : 'bg-green-800';
+  const footerBgColor = theme === 'light' ? 'bg-emerald-100' : 'bg-green-900';
   const footerTextColor = theme === 'light' ? 'text-neutral-200' : 'text-slate-100';
 
   return (
