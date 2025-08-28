@@ -26,9 +26,9 @@ function Navigation() {
   if (!loading && !error && data?.themeSettings?.logo?.sourceUrl) {
     logoUrl = data.themeSettings.logo.sourceUrl;
   }
-  const navBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-emerald-950';
-  const navTextColor = theme === 'light' ? 'text-gray-800' : 'text-slate-100';
-  const navHoverColor = theme === 'light' ? 'hover:bg-gray-300' : 'hover:bg-green-800';
+  const navBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-green-700';
+  const navTextColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
+  const navHoverColor = theme === 'light' ? 'hover:bg-gray-300' : 'hover:bg-green-600';
   // Only static classNames below
   return (
     <nav className={navBgColor + ' p-2 md:p-4 lg:p-6 shadow-md tablet-nav'}>

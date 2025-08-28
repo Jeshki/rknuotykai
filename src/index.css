@@ -10,6 +10,10 @@ html, body, #root {
   padding: 0;
 }
 
+body {
+  @apply font-poppins;
+}
+
 .slick-prev:before,
 .slick-next:before {
   display: none !important;

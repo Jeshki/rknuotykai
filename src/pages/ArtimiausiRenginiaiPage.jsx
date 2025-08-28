@@ -12,7 +12,7 @@ const ArtimiausiRenginiaiPage = () => {
   const [selectedZygis, setSelectedZygis] = useState(null);
   const [registrationData, setRegistrationData] = useState(null);
 
-  const pageBgColor = theme === 'light' ? 'bg-emerald-100' : 'bg-green-900';
+  const pageBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-green-700';
   const pageTextColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
 
   useEffect(() => {
@@ -75,26 +75,9 @@ const ArtimiausiRenginiaiPage = () => {
     return Promise.resolve();
   };
 
-  {loading ? (
-    <p className={`p-4 ${pageTextColor}`}>Kraunama...</p>
-  ) : renginiai.length === 0 ? (
-    <p className="text-center text-lg mt-8">Šiuo metu nėra aktyvių žygių. <br />Laukite artimiausių nuotykių!</p>
-  ) : (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto pb-8 w-full">
-      {renginiai.map((zygis) => {
-        const afterExpire = isAfterExpire(zygis.expireat);
-        const isActive = zygis.statusas.includes('Active');
-        return (
-          <ZygioKalendoriausKortele
-            key={zygis.id}
-            zygis={zygis}
-            onRegisterClick={handleRegisterClick}
-            hideRegisterButton={!isActive || afterExpire}
-          />
-        );
-      })}
-    </div>
-  )}
+  if (loading) {
+    return <p className={`p-4 ${pageTextColor}`}>Kraunama...</p>;
+  }
 
   return (
     <div className={`min-h-[calc(100vh-80px-100px)] flex flex-col items-center p-4 md:p-8 text-center ${pageBgColor} ${pageTextColor} w-full`}>
