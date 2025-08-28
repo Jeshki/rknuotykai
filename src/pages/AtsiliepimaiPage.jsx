@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Star, UserCircle, CalendarDays } from 'lucide-react';
 import { ReviewsService } from '../services/reviews.service';
+import SEO from '../components/SEO';
 
 const AtsiliepimasCard = ({ atsiliepimas, theme }) => {
   const cardBg = theme === 'light' ? 'bg-white' : 'bg-green-900';
@@ -80,32 +81,47 @@ const AtsiliepimaiPage = () => {
     fetchReviews();
   }, []);
 
-  if (loading) {
-    return <p className="p-4">Kraunama...</p>;
-  }
+  const seo = <SEO title="Atsiliepimai" description="Perskaitykite dalyvių atsiliepimus apie RK nuotykius." />;
 
-  if (error) {
-    return <p className="p-4 text-red-500">{error}</p>;
-  }
+  if (loading) {
+    return (
+      <>
+        {seo}
+        <p className="p-4">Kraunama...</p>
+      </>
+    );
+  }
 
-  return (
-    <div className={`flex flex-col items-center p-4 md:p-8 ${pageBg} ${textColor} w-full min-h-screen`}>
-      <h1 className="text-4xl md:text-5xl font-bold mb-2">Mūsų Klientų Atsiliepimai</h1>
-      <p className="text-lg md:text-xl mb-10 text-center max-w-2xl">
-        Džiaugiamės galėdami dalintis įspūdžiais ir patirtimis, kurias mūsų žygeiviai patiria keliaudami kartu!
-      </p>
+  if (error) {
+    return (
+      <>
+        {seo}
+        <p className="p-4 text-red-500">{error}</p>
+      </>
+    );
+  }
 
-      {atsiliepimai.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto w-full">
-          {atsiliepimai.map(atsl => (
-            <AtsiliepimasCard key={atsl.id} atsiliepimas={atsl} theme={theme} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-lg">Atsiliepimų kol kas nėra.</p>
-      )}
-    </div>
-  );
+  return (
+    <>
+      {seo}
+      <div className={`flex flex-col items-center p-4 md:p-8 ${pageBg} ${textColor} w-full min-h-screen`}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-2">Mūsų Klientų Atsiliepimai</h1>
+        <p className="text-lg md:text-xl mb-10 text-center max-w-2xl">
+          Džiaugiamės galėdami dalintis įspūdžiais ir patirtimis, kurias mūsų žygeiviai patiria keliaudami kartu!
+        </p>
+
+        {atsiliepimai.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto w-full">
+            {atsiliepimai.map(atsl => (
+              <AtsiliepimasCard key={atsl.id} atsiliepimas={atsl} theme={theme} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-lg">Atsiliepimų kol kas nėra.</p>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default AtsiliepimaiPage;

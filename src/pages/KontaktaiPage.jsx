@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Phone, Mail, MapPin, Facebook, Send, User, MessageSquare, Smartphone } from 'lucide-react';
 import { ContactsService } from '../services/contacts.service';
+import SEO from '../components/SEO';
 
 const KontaktaiPage = () => {
   const { theme } = useTheme();
@@ -66,9 +67,11 @@ const KontaktaiPage = () => {
   );
 
   return (
-    <div className={`flex flex-col items-center p-4 md:p-8 ${pageBgColor} ${pageTextColor} w-full min-h-screen`}>
-      <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">Susisiekite</h1>
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl">
+    <>
+      <SEO title="Kontaktai" description="Susisiekite su RK nuotykiais dėl žygių ir paslaugų." />
+      <div className={`flex flex-col items-center p-4 md:p-8 ${pageBgColor} ${pageTextColor} w-full min-h-screen`}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">Susisiekite</h1>
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl">
 
         {/* Form */}
         <div className={`p-6 md:p-8 rounded-lg shadow-xl ${cardBgColor} ${cardTextColor}`}>
@@ -161,8 +164,9 @@ const KontaktaiPage = () => {
             </a>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
