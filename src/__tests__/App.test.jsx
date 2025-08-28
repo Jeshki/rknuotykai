@@ -4,5 +4,5 @@ import App from '../App';
 
 test('renders main page', () => {
   render(<App />);
-  expect(screen.getByText(/rknuotykiai/i)).toBeInTheDocument();
+  expect(screen.getByText(/RK Nuotykiai/i)).toBeInTheDocument();
 });

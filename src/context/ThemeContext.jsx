@@ -15,15 +15,13 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const body = document.body;
 
-    body.classList.add('min-h-screen', 'flex', 'flex-col', 'font-advent-pro', 'transition-colors', 'duration-300');
+    body.classList.add('min-h-screen', 'flex', 'flex-col', 'font-poppins', 'transition-colors', 'duration-300');
 
     if (theme === 'light') {
-      body.classList.add('bg-emerald-950', 'text-slate-100');
-      body.classList.remove('bg-emerald-950');
-      body.classList.remove('bg-green-900', 'text-slate-50');
+      body.classList.add('bg-neutral-200', 'text-gray-800');
+      body.classList.remove('bg-emerald-950', 'text-slate-100');
     } else {
       body.classList.add('bg-emerald-950', 'text-slate-100');
-      body.classList.remove('bg-green-900', 'text-slate-100');
       body.classList.remove('bg-neutral-200', 'text-gray-800');
     }
     localStorage.setItem('theme', theme);

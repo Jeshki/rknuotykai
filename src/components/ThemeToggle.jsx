@@ -4,15 +4,14 @@ import { Sun, Moon } from 'lucide-react';
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
-  const buttonBgColor = theme === 'light' ? 'bg-green-700' : 'bg-emerald-950';
-  const buttonTextColor = theme === 'light' ? 'text-neutral-200' : 'text-slate-100';
+  const buttonBgColor = theme === 'light' ? 'bg-gray-300' : 'bg-green-800';
+  const buttonTextColor = theme === 'light' ? 'text-gray-800' : 'text-slate-100';
+  const buttonHover = theme === 'light' ? 'hover:bg-gray-400' : 'hover:bg-green-700';
 
   return (
       <button
         onClick={toggleTheme}
-  className={`px-2 py-1 rounded flex items-center w-fit text-sm sm:text-base
-                    ${buttonBgColor} ${buttonTextColor}
-                    hover:opacity-80 transition-colors`}
+  className={`px-2 py-1 rounded flex items-center w-fit text-sm sm:text-base ${buttonBgColor} ${buttonTextColor} ${buttonHover} transition-colors`}
       >
       {theme === 'light' ? (
         <Moon className="mr-2" />
