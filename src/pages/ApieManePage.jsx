@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 import videoBackground from '../assets/rknuotykiai.mp4';
 // IMGs
@@ -76,7 +77,9 @@ const ApieManePage = () => {
   };
 
   return (
-    <div className={`min-h-[calc(100vh-80px-100px)] flex flex-col items-center ${pageBgColor} ${pageTextColor} w-full`}>
+    <>
+      <SEO title="Apie mane" description="Sužinokite apie Rolandą ir jo nuotykių istoriją." />
+      <div className={`min-h-[calc(100vh-80px-100px)] flex flex-col items-center ${pageBgColor} ${pageTextColor} w-full`}>
       <div className="relative w-full h-[70vh] overflow-hidden flex justify-center items-center mb-5">
         <video autoPlay loop muted playsInline className="absolute w-full h-full object-cover top-0 left-0 z-10">
           <source src={videoBackground} type="video/mp4" />
@@ -121,6 +124,7 @@ const ApieManePage = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

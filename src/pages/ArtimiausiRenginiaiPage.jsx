@@ -4,6 +4,7 @@ import ZygioKalendoriausKortele from '../components/ZygioKalendoriausKortele';
 import RegistracijosForma from '../components/RegistracijosForma';
 import Modal from '../components/Modal';
 import { HikesService } from '../services/hikes.service';
+import SEO from '../components/SEO';
 
 const ArtimiausiRenginiaiPage = () => {
   const { theme } = useTheme();
@@ -75,14 +76,23 @@ const ArtimiausiRenginiaiPage = () => {
     return Promise.resolve();
   };
 
+  const seo = <SEO title="Artimiausi renginiai" description="Peržiūrėkite artimiausius RK nuotykių žygius ir registruokitės." />;
+
   if (loading) {
-    return <p className={`p-4 ${pageTextColor}`}>Kraunama...</p>;
+    return (
+      <>
+        {seo}
+        <p className={`p-4 ${pageTextColor}`}>Kraunama...</p>
+      </>
+    );
   }
 
   return (
-    <div className={`min-h-[calc(100vh-80px-100px)] flex flex-col items-center p-4 md:p-8 text-center ${pageBgColor} ${pageTextColor} w-full`}>
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">Būsimų žygių kalendorius</h1>
-      <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">Išsirinkite ir registruokitės į artimiausius nuotykius!</p>
+    <>
+      {seo}
+      <div className={`min-h-[calc(100vh-80px-100px)] flex flex-col items-center p-4 md:p-8 text-center ${pageBgColor} ${pageTextColor} w-full`}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Būsimų žygių kalendorius</h1>
+        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">Išsirinkite ir registruokitės į artimiausius nuotykius!</p>
 
       {renginiai.length === 0 ? (
         <p>Šiuo metu nėra aktyvių žygių.</p>
@@ -104,22 +114,23 @@ const ArtimiausiRenginiaiPage = () => {
         </div>
       )}
 
-      {selectedZygis && (
-        <RegistracijosForma
-          zygis={selectedZygis}
-          onSubmitSuccess={handleSubmitRegistration}
-          onCancel={handleCancelRegistration}
-        />
-      )}
+        {selectedZygis && (
+          <RegistracijosForma
+            zygis={selectedZygis}
+            onSubmitSuccess={handleSubmitRegistration}
+            onCancel={handleCancelRegistration}
+          />
+        )}
 
-      {registrationData && (
-        <Modal
-          registracijosInfo={registrationData}
-          onClose={handleCloseConfirmationModal}
-          onSendEmail={handleSendConfirmationEmail}
-        />
-      )}
-    </div>
+        {registrationData && (
+          <Modal
+            registracijosInfo={registrationData}
+            onClose={handleCloseConfirmationModal}
+            onSendEmail={handleSendConfirmationEmail}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
