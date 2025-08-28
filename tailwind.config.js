@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-              'poppins': ['"Poppins"', 'sans-serif'], // Added Poppins font
+              inter: ['"Inter"', 'sans-serif'], // Use Inter font
       },
       // Jei naudojate spalvas, kurios nėra default Tailwind paletėje,
       // turėsite jas apibrėžti čia.
