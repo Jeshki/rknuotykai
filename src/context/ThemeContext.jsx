@@ -15,7 +15,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const body = document.body;
 
-    body.classList.add('min-h-screen', 'flex', 'flex-col', 'font-poppins', 'transition-colors', 'duration-300');
+    body.classList.add('min-h-screen', 'flex', 'flex-col', 'font-inter', 'transition-colors', 'duration-300');
 
     if (theme === 'light') {
       body.classList.add('bg-neutral-200', 'text-gray-800');
