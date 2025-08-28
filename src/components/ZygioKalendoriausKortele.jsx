@@ -1,4 +1,5 @@
 import { useTheme } from '../context/ThemeContext';
+import { isPastEvent } from '../lib/date';
 
 const ZygioKalendoriausKortele = ({ zygis, onRegisterClick, hideRegisterButton }) => {
   const { theme } = useTheme();
@@ -14,13 +15,6 @@ const ZygioKalendoriausKortele = ({ zygis, onRegisterClick, hideRegisterButton }
     if (!dateString) return 'Nenurodyta';
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('lt-LT', options);
-  };
-
-  const isPastEvent = (dateString) => {
-    if (!dateString) return true;
-    const today = new Date();
-    const eventDate = new Date(dateString);
-    return eventDate < today.setHours(0, 0, 0, 0);
   };
 
   const googleMapsUrl = zygis.koordinates
