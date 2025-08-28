@@ -26,8 +26,9 @@ function Navigation() {
   if (!loading && !error && data?.themeSettings?.logo?.sourceUrl) {
     logoUrl = data.themeSettings.logo.sourceUrl;
   }
-  const navBgColor = theme === 'light' ? 'bg-emerald-950' : 'bg-green-800';
-  const navTextColor = theme === 'light' ? 'text-neutral-200' : 'text-slate-100';
+  const navBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-emerald-950';
+  const navTextColor = theme === 'light' ? 'text-gray-800' : 'text-slate-100';
+  const navHoverColor = theme === 'light' ? 'hover:bg-gray-300' : 'hover:bg-green-800';
   // Only static classNames below
   return (
     <nav className={navBgColor + ' p-2 md:p-4 lg:p-6 shadow-md tablet-nav'}>
@@ -36,29 +37,29 @@ function Navigation() {
           {logoUrl ? <img src={logoUrl} alt="Logo" className="h-10 md:h-14 lg:h-16 w-auto transition-all duration-300" /> : null}
         </NavLink>
   <ul className="hidden md:flex flex-row gap-3 md:gap-5 lg:gap-8 items-center ml-1 md:ml-4 lg:ml-6 tablet-menu justify-center w-full">
-          <li><NavLink to="/" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:bg-green-900 hover:opacity-90 transition-all duration-200 tablet-link text-center"}>Apie mane</NavLink></li>
-          <li><NavLink to="/zygiai" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:bg-green-900 hover:opacity-90 transition-all duration-200 tablet-link text-center"}>Žygiai</NavLink></li>
-          <li><NavLink to="/paslaugos" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:opacity-80 transition-opacity tablet-link text-center"}>Paslaugos</NavLink></li>
-          <li><NavLink to="/artimiausi-renginiai" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:opacity-80 transition-opacity tablet-link text-center"}>Artimiausi renginiai</NavLink></li>
-          <li><NavLink to="/atsiliepimai" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:opacity-80 transition-opacity tablet-link text-center"}>Atsiliepimai</NavLink></li>
-          <li><NavLink to="/kontaktai" className={"text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md " + navTextColor + " hover:opacity-80 transition-opacity tablet-link text-center"}>Kontaktai</NavLink></li>
+          <li><NavLink to="/" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-90 transition-all duration-200 tablet-link text-center`}>Apie mane</NavLink></li>
+          <li><NavLink to="/zygiai" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-90 transition-all duration-200 tablet-link text-center`}>Žygiai</NavLink></li>
+          <li><NavLink to="/paslaugos" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-80 transition-opacity tablet-link text-center`}>Paslaugos</NavLink></li>
+          <li><NavLink to="/artimiausi-renginiai" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-80 transition-opacity tablet-link text-center`}>Artimiausi renginiai</NavLink></li>
+          <li><NavLink to="/atsiliepimai" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-80 transition-opacity tablet-link text-center`}>Atsiliepimai</NavLink></li>
+          <li><NavLink to="/kontaktai" className={`text-[10px] md:text-xs lg:text-sm uppercase tracking-wide px-1 py-1 rounded-md ${navTextColor} ${navHoverColor} hover:opacity-80 transition-opacity tablet-link text-center`}>Kontaktai</NavLink></li>
           <li><ThemeToggle /></li>
         </ul>
-  <button className="md:hidden ml-2 p-3 rounded-lg hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-400" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button className={"md:hidden ml-2 p-3 rounded-lg " + navHoverColor + " focus:outline-none focus:ring-2 focus:ring-green-400"} onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} className={navTextColor} /> : <Menu size={24} className={navTextColor} />}
         </button>
       </div>
       {isMenuOpen && (
         <div className={"fixed top-0 right-0 h-full w-4/5 max-w-md " + navBgColor + " z-50 shadow-lg flex flex-col items-start gap-4 pt-16 px-4 md:px-8 transition-transform duration-300 md:hidden"}>
-          <button className="absolute top-4 right-4 p-2 rounded-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400" onClick={() => setIsMenuOpen(false)}>
+          <button className={"absolute top-4 right-4 p-2 rounded-lg " + navHoverColor + " focus:outline-none focus:ring-2 focus:ring-green-400"} onClick={() => setIsMenuOpen(false)}>
             <X size={28} className={navTextColor} />
           </button>
-          <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Apie mane</NavLink>
-          <NavLink to="/zygiai" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Žygiai</NavLink>
-          <NavLink to="/paslaugos" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Paslaugos</NavLink>
-          <NavLink to="/artimiausi-renginiai" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Artimiausi renginiai</NavLink>
-          <NavLink to="/atsiliepimai" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Atsiliepimai</NavLink>
-          <NavLink to="/kontaktai" onClick={() => setIsMenuOpen(false)} className={"text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold " + navTextColor + " hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200"}>Kontaktai</NavLink>
+          <NavLink to="/" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Apie mane</NavLink>
+          <NavLink to="/zygiai" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Žygiai</NavLink>
+          <NavLink to="/paslaugos" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Paslaugos</NavLink>
+          <NavLink to="/artimiausi-renginiai" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Artimiausi renginiai</NavLink>
+          <NavLink to="/atsiliepimai" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Atsiliepimai</NavLink>
+          <NavLink to="/kontaktai" onClick={() => setIsMenuOpen(false)} className={`text-base uppercase tracking-wide px-3 py-2 rounded-lg w-full text-left font-bold ${navTextColor} ${navHoverColor} focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-200`}>Kontaktai</NavLink>
           <div className="w-full mt-2">
             <ThemeToggle />
           </div>
