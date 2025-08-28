@@ -3,10 +3,10 @@ import { useTheme } from '../context/ThemeContext';
 const ZygioKalendoriausKortele = ({ zygis, onRegisterClick, hideRegisterButton }) => {
   const { theme } = useTheme();
 
-  const cardBg = theme === 'light' ? 'bg-slate-100' : 'bg-green-800';
+  const cardBg = theme === 'light' ? 'bg-neutral-100' : 'bg-green-800';
   const cardTextColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
   const headingColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
-  const buttonBg = theme === 'light' ? 'bg-emerald-950' : 'bg-slate-100';
+  const buttonBg = theme === 'light' ? 'bg-emerald-600' : 'bg-slate-100';
   const buttonTextColor = theme === 'light' ? 'text-slate-100' : 'text-emerald-950';
   const linkColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
 
