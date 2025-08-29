@@ -11,13 +11,13 @@ function ThemeToggle() {
   return (
       <button
         onClick={toggleTheme}
-  className={`px-2 py-1 rounded flex items-center w-fit text-sm sm:text-base ${buttonBgColor} ${buttonTextColor} ${buttonHover} transition-colors`}
-      >
-      {theme === 'light' ? (
-        <Moon className="mr-2" />
-      ) : (
-        <Sun className="mr-2" />
-      )}
+    className={`px-2 py-1 rounded flex items-center justify-center w-full sm:w-auto text-xs sm:text-sm ${buttonBgColor} ${buttonTextColor} ${buttonHover} transition-colors`}
+        >
+        {theme === 'light' ? (
+          <Moon size={16} className="mr-2" />
+        ) : (
+          <Sun size={16} className="mr-2" />
+        )}
 
       {theme === 'light' ? 'Tamsu' : 'Šviesu'}
     </button>

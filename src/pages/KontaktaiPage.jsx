@@ -16,7 +16,7 @@ const KontaktaiPage = () => {
   });
   const [formStatus, setFormStatus] = useState('');
 
-  const pageBgColor = theme === 'light' ? 'bg-slate-100' : 'bg-green-700';
+  const pageBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-emerald-950';
   const pageTextColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
   const cardBgColor = theme === 'light' ? 'bg-white' : 'bg-green-900';
   const cardTextColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';

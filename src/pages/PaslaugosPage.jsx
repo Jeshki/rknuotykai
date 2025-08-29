@@ -7,7 +7,7 @@ function PaslaugosPage() {
   const { theme } = useTheme();
 
   // Puslapio ir teksto spalvos
-  const pageBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-green-700';
+  const pageBgColor = theme === 'light' ? 'bg-neutral-200' : 'bg-emerald-950';
   const pageTextColor = theme === 'light' ? 'text-gray-800' : 'text-slate-100';
   const headingColor = theme === 'light' ? 'text-emerald-950' : 'text-slate-100';
   const cardBgColor = theme === 'light' ? 'bg-white' : 'bg-green-900';
